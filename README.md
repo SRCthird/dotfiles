@@ -8,11 +8,8 @@ This repository includes configuration files for the following:
 
 - **Bash**
   - `.bashrc`
-  - `.bash_profile`
-- **Zsh**
-  - `.zshrc`
-- **Vim**
-  - `.vimrc`
+- **Wezterm**
+  - `.wezterm.lua`
 - **Tmux**
   - `.tmux.conf`
 - **Others**
@@ -42,10 +39,8 @@ To set up these dotfiles on your system, follow the steps below:
 
    ```sh
    ln -sf .bashrc ~/.bashrc
-   ln -sf .zshrc ~/.zshrc
-   ln -sf .vimrc ~/.vimrc
    ln -sf .tmux.conf ~/.tmux.conf
-   ln -sf .gitconfig ~/.gitconfig
+   ln -sf .wezterm.lua ~/.wezterm.lua
    ```
 
 
