@@ -3,18 +3,12 @@ local utf8 = require 'utf8'
 
 local system_os = (function()
   local BinaryFormat = package.cpath:match("%p[\\|/]?%p(%a+)")
-  if BinaryFormat == "dll" then
-    function os.name()
-      return "Windows"
-    end
+  if BinaryFormat == "dll" or BinaryFormat == "Users" then
+    return "Windows"
   elseif BinaryFormat == "so" then
-    function os.name()
-      return "Linux"
-    end
+    return "Linux"
   elseif BinaryFormat == "dylib" then
-    function os.name()
-      return "MacOS"
-    end
+    return "MacOS"
   end
 end)()
 
