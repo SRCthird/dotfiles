@@ -50,8 +50,13 @@ fi
 # PS1
 # -----------------------------------------------------------------------------
 function parse_git_dirty {
+  ahead_behind=$(git rev-list --left-right --count @{upstream}...HEAD 2>/dev/null || echo "0 0")
+
   [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+  [[ $(echo $ahead_behind | cut -d ' ' -f1) -ne 0 ]] && echo ""
+  [[ $(echo $ahead_behind | cut -d ' ' -f2) -ne 0 ]] && echo ""
 }
+
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
 }
