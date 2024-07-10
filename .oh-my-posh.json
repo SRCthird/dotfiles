@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "cycle": [
+    {
+      "foreground": "#100e23",
+      "background": "#ffadad"
+    },
+    {
+      "foreground": "#100e23",
+      "background": "#ffd6a5"
+    },
+    {
+      "foreground": "#100e23",
+      "background": "#fdffb6"
+    },
+    {
+      "foreground": "#100e23",
+      "background": "#caffbf"
+    },
+    {
+      "foreground": "#100e23",
+      "background": "#9bf6ff"
+    },
+    {
+      "foreground": "#100e23",
+      "background": "#a0c4ff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "{{ .Env.OSC7 }}"
+        },
+        {
+            "type": "python",
+            "style": "diamond",
+            "leading_diamond": "",
+            "template": "{{ if .Venv }}{{ .Venv }}{{ end }} ",
+            "properties": {
+                "fetch_virtual_env": true
+            }
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "template": "  {{ .Path }} ",
+          "properties": {
+            "style": "folder"
+          },
+          "Text": "",
+          "Duration": 0,
+          "NameLength": 0
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "trailing_diamond": "",
+          "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+
+          "Text": "",
+          "Duration": 0,
+          "NameLength": 0
+        },
+        {
+          "type": "dotnet",
+          "style": "diamond",
+          "trailing_diamond": "",
+          "template": " \ue70c {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
+          "properties": {
+            "fetch_version": true
+          },
+          "Text": "",
+          "Duration": 0,
+          "NameLength": 0
+        },
+        {
+          "type": "root",
+          "style": "diamond",
+          "trailing_diamond": "",
+          "template": " \uf0e7 ",
+          "Text": "",
+          "Duration": 0,
+          "NameLength": 0
+        },
+        {
+          "type": "exit",
+          "style": "diamond",
+          "trailing_diamond": "",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "template": " \ue23a{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          },
+          "Text": "",
+          "Duration": 0,
+          "NameLength": 0
+        }
+      ]
+    }
+  ]
+}
