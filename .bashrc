@@ -67,15 +67,15 @@ ARCH=$'\xef\x8c\x83'      # 
 RIGHTCIRC=$'\xee\x82\xb4' # 
 
 # Colors
-WHITE_BG=$'\e[47m'
-WHITE_FG=$'\e[97m'
-BLUE_BG=$'\e[44m'
-BLUE_FG=$'\e[34m'
-CYAN_BG=$'\e[46m'
-CYAN_FG=$'\e[36m'
-PURPLE_BG=$'\e[45m'
-PURPLE_FG=$'\e[35m'
-RESET=$'\e[0m'
+WHITE_BG=$'\[\e[47m\]'
+WHITE_FG=$'\[\e[97m\]'
+BLUE_BG=$'\[\e[44m\]'
+BLUE_FG=$'\[\e[34m\]'
+CYAN_BG=$'\[\e[46m\]'
+CYAN_FG=$'\[\e[36m\]'
+PURPLE_BG=$'\[\e[45m\]'
+PURPLE_FG=$'\[\e[35m\]'
+RESET=$'\[\e[0m\]'
 
 # Chunks
 DISTRO="${BLUE_FG}${LEFTCIRC}${RESET}${BLUE_BG}${WHITE_FG}${ARCH} ${RESET}${BLUE_FG}${CYAN_BG}${RIGHTCIRC}${RESET}"
