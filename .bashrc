@@ -35,12 +35,12 @@ export PATH=$PATH:/var/lib/snapd/snap/bin
 # -----------------------------------------------------------------------------
 # WEZTERM + ZOXIDE
 # -----------------------------------------------------------------------------
-if [ -n $WSLENV ]; then
+if [ -n $WSLENV ] && [ ! "$XDG_SESSION_TYPE" = "x11" ]; then
   eval "$(zoxide init bash)"
   function cd () {
-    z "$@"    # perform the actual cd
+    z "$@"
     [[ TERM_PROGRAM -eq "WezTerm" ]] && 
-      wezterm.exe set-working-directory $(pwd)
+      wezterm.exe set-working-directory
     }
 else
   eval "$(zoxide init --cmd cd bash)"
